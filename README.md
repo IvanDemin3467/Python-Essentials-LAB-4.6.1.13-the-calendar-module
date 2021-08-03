@@ -56,5 +56,14 @@ class MyCalendar(calendar.Calendar):
 ```
 **Implementation v2** (gets by index, works faster)
 ```
+    def count_weekday_in_year(self, year, weekday):
+        # This method takes a year and a weekday as parameters,
+        # and then returns the number of occurrences of a specific weekday in the year.
+        counter = 0                                 # init counter to count weekdays in a year
+        for iter in range(1, 13):                            # Iterate through weeks in a year
+            for week in self.monthdays2calendar(year, iter): # get all weeks in a month
+                if week[weekday][0] != 0:                    # If this day is in this month ->
+                    counter += 1                             # -> cont it
 
+        return counter                                       # weekdays counted -> return
 ```
