@@ -35,3 +35,26 @@ year=2000, weekday=6
 ```
 53
 ```
+
+**Implementation v1** (iterates through days in a week)
+```
+import calendar
+
+class MyCalendar(calendar.Calendar):
+    def __init__(self):
+        calendar.Calendar.__init__(self)
+
+    def count_weekday_in_year(self, year, weekday):
+        counter = 0
+        for iter in range(1, 13):
+            for week in self.monthdays2calendar(year, iter):
+                for day in week:
+                    if day[0] != 0 and day [1] == weekday:
+                        counter += 1
+
+        return counter
+```
+**Implementation v2** (gets by index, works faster)
+```
+
+```
